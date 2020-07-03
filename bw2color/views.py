@@ -1,11 +1,30 @@
-def model_form_upload(request):
-    if request.method == 'POST':
-        form = DocumentForm(request.POST, request.FILES)
+from django.http import HttpResponse
+from django.shortcuts import render, redirect
+from .forms import *
+
+def bw_img_view(request):
+
+    if request.method=='POST':
+        form = ImageForm(request.POST, request.FILES)
+
         if form.is_valid():
             form.save()
-            return redirect('home')
+            return redirect('success')
+
     else:
-        form = DocumentForm()
-    return render(request, 'index.html', {
-        'form': form
-    })
+        form = ImageForm()
+    return render(request, 'index.html', {'form':form})
+
+def success(request):
+    return HttpResponse('successfully uploaded')
+# def model_form_upload(request):
+#     if request.method == 'POST':
+#         form = DocumentForm(request.POST, request.FILES)
+#         if form.is_valid():
+#             form.save()
+#             return redirect('home')
+#     else:
+#         form = DocumentForm()
+#     return render(request, 'index.html', {
+#         'form': form
+#     })

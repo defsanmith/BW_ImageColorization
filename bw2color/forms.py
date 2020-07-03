@@ -1,7 +1,7 @@
 from django import forms
-from uploads.core.models import Document
+from .models import *
 
-class DocumentForm(forms.ModelForm):
+class ImageForm(forms.ModelForm):
     class Meta:
-        model = Document
-        fields = ('description', 'document', )
+        model = Image
+        fields = ['bw_img']
