@@ -1,30 +1,16 @@
-from django.http import HttpResponse
-from django.shortcuts import render, redirect
-from .forms import *
+from django.shortcuts import render
+from .forms import ImageForm
 
-def bw_img_view(request):
-
-    if request.method=='POST':
+def image_upload_view(request):
+    if request.method == 'POST':
         form = ImageForm(request.POST, request.FILES)
-
+        
         if form.is_valid():
             form.save()
-            return redirect('success')
+            img_obj = form.instance
+            return render(request, 'index.html', {'form':form, 'img_obj': img_obj})
 
     else:
         form = ImageForm()
-    return render(request, 'index.html', {'form':form})
 
-def success(request):
-    return HttpResponse('successfully uploaded')
-# def model_form_upload(request):
-#     if request.method == 'POST':
-#         form = DocumentForm(request.POST, request.FILES)
-#         if form.is_valid():
-#             form.save()
-#             return redirect('home')
-#     else:
-#         form = DocumentForm()
-#     return render(request, 'index.html', {
-#         'form': form
-#     })
+    return render(request, 'index.html', {'form':form})

@@ -1,7 +1,11 @@
 from django import forms
-from .models import *
+from django.core.files import File
+from .models import Image
+import numpy as np
+import cv2
+from .color import convert
 
 class ImageForm(forms.ModelForm):
     class Meta:
         model = Image
-        fields = ['bw_img']
+        fields = ['image']

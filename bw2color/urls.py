@@ -20,15 +20,8 @@ from django.conf.urls.static import static
 from . import views
 
 urlpatterns = [
-    path('', views.bw_img_view, name='bw_img_view'),
-    path('', views.success, name='success'),
+    path('', views.image_upload_view, name='bw_img_view'),
 ]
 
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL,  document_root=settings.MEDIA_ROOT)
-# urlpatterns = [
-#     path('admin/', admin.site.urls),
-# ]
-# if settings.DEBUG:
-#         urlpatterns += static(settings.MEDIA_URL,
-#                               document_root=settings.MEDIA_ROOT)
