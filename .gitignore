@@ -1,2 +1,6 @@
 
 convert_model/colorization_release_v2.caffemodel
+*.jpg
+*.gif
+bw2color/media/colored/p.jpeg
+bw2color/media/images/p.jpeg

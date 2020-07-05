@@ -79,7 +79,9 @@
                         {% if img_obj %}
                         <img src="{{ img_obj.colored.url }}" class="card-img-top" alt="connect"> {% endif %}
                         <p class="card-text">Here is your coloured image!</p>
-                        <button type="button" class="btn btn-success btn-lg btn-block" disabled>Download</button>
+                        <a href="{{ img_obj.colored.url}}" style="color: white;" download="colored">
+                            <button type="button" class="btn btn-success btn-lg btn-block" id="download" disabled>Download</button>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -128,6 +130,11 @@
             </div>
         </div>
     </div>
+    {% if img_obj %}
+    <script>
+        document.getElementById("download").removeAttribute("disabled")
+    </script>
+    {% endif %}
 </footer>
 
 
