@@ -68,6 +68,7 @@
                     </div>
                 </div>
             </div>
+            {% if img_obj %}
 
             <div class="col imgcard">
                 <div class="card">
@@ -76,15 +77,15 @@
                     </div>
 
                     <div class="card-body">
-                        {% if img_obj %}
-                        <img src="{{ img_obj.colored.url }}" class="card-img-top" alt="connect"> {% endif %}
+                        <img src="{{ img_obj.colored.url }}" class="card-img-top" alt="connect">
                         <p class="card-text">Here is your coloured image!</p>
-                        <a href="{{ img_obj.colored.url}}" style="color: white;" download="colored">
+                        <a href="{{ img_obj.colored.url}}" style="color: white; text-decoration: none;" download="colored">
                             <button type="button" class="btn btn-success btn-lg btn-block" id="download" disabled>Download</button>
                         </a>
                     </div>
                 </div>
             </div>
+            {% endif %}
         </div>
     </div>
 </body>
