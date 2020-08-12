@@ -1,0 +1,7 @@
+
+convert_model/colorization_release_v2.caffemodel
+*.jpg
+*.gif
+*.sqlite3
+bw2color/media/colored/*.jpeg
+bw2color/media/images/*.jpeg
